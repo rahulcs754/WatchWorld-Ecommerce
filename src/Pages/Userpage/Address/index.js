@@ -1,3 +1,3 @@
 export const Address = () => {
-  return <>Address Page</>;
+  return <h1>Address Page</h1>;
 };

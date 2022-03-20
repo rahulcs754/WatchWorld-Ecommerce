@@ -6,6 +6,7 @@ import {
   Signup,
   Address,
   Wishlist,
+  NoPageFound,
 } from "../Pages";
 import MockAPI from "../mock-api";
 
@@ -22,6 +23,7 @@ const Routespaths = () => {
       <Route path="/wishlist" element={<Wishlist />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
       <Route path="/mock-api" element={<MockAPI />}></Route>
+      <Route path="*" element={<NoPageFound />}></Route>
     </Routes>
   );
 };
