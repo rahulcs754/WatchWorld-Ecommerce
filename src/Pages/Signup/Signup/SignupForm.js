@@ -12,6 +12,7 @@ const SignupForm = () => {
     errors: {},
     submitted: false,
     loading: false,
+    formError: "",
   });
   const [passwordView, setpasswordView] = useState({
     passwordshow: false,
@@ -20,6 +21,19 @@ const SignupForm = () => {
 
   // password view  state
   const { passwordshow, confirmPasswordshow } = passwordView;
+
+  //destructure values
+  const {
+    firstname,
+    lastname,
+    email,
+    password,
+    confirmPassword,
+    errors,
+    submitted,
+    loading,
+    formError,
+  } = signupForm;
 
   //submit handler
   const submitHandler = async (e) => {
@@ -53,19 +67,35 @@ const SignupForm = () => {
 
       try {
         const response = await axios.post(`/api/auth/signup`, {
-          firstName: signupForm.firstName,
-          lastName: signupForm.lastName,
-          email: signupForm.email,
-          password: signupForm.password,
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: password,
         });
+        console.log(response);
+
         // saving the encodedToken in the localStorage
         if (response.status === 201) {
           localStorage.setItem("token", response.data.encodedToken);
-        } else {
-          console.log("Login Credential wrong");
+        } else if (response.status === 500) {
+          setSignupForm((prev) => ({
+            ...prev,
+            loading: false,
+            formErrors: "Login Credential wrong",
+          }));
+        } else if (response.status === 422) {
+          setSignupForm((prev) => ({
+            ...prev,
+            loading: false,
+            formErrors: "User Already Exits",
+          }));
         }
       } catch (error) {
-        console.log(error);
+        setSignupForm((prev) => ({
+          ...prev,
+          loading: false,
+          formErrors: error,
+        }));
       }
     } else {
       setSignupForm((prev) => ({
@@ -82,16 +112,6 @@ const SignupForm = () => {
     setSignupForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const {
-    firstname,
-    lastname,
-    email,
-    password,
-    confirmPassword,
-    errors,
-    submitted,
-    loading,
-  } = signupForm;
   return (
     <div className="signup-box">
       {submitted ? (
@@ -103,6 +123,9 @@ const SignupForm = () => {
       ) : (
         <form className="signup-form" onSubmit={submitHandler}>
           <div className="login-title f-m text-center">Signup</div>
+          <div className="text-danger text-center">
+            {formError ?? formError}
+          </div>
           <div className="input-box">
             <label className="label-text ">First Name</label>
             <input
