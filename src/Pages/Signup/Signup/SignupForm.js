@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const SignupForm = () => {
+  const navigate = useNavigate();
   const [signupForm, setSignupForm] = useState({
     firstname: "",
     lastname: "",
@@ -13,7 +15,9 @@ const SignupForm = () => {
     submitted: false,
     loading: false,
     formError: "",
+    isValid: false,
   });
+
   const [passwordView, setpasswordView] = useState({
     passwordshow: false,
     confirmPasswordshow: false,
@@ -33,6 +37,7 @@ const SignupForm = () => {
     submitted,
     loading,
     formError,
+    isValid,
   } = signupForm;
 
   //submit handler
@@ -67,27 +72,34 @@ const SignupForm = () => {
 
       try {
         const response = await axios.post(`/api/auth/signup`, {
-          firstName: firstName,
-          lastName: lastName,
+          firstName: firstname,
+          lastName: lastname,
           email: email,
           password: password,
         });
-        console.log(response);
 
         // saving the encodedToken in the localStorage
         if (response.status === 201) {
           localStorage.setItem("token", response.data.encodedToken);
+          setTimeout(() => navigate("/login"), 3000);
+
+          setSignupForm((prev) => ({
+            ...prev,
+            isValid: true,
+          }));
         } else if (response.status === 500) {
           setSignupForm((prev) => ({
             ...prev,
             loading: false,
             formErrors: "Login Credential wrong",
+            isValid: false,
           }));
         } else if (response.status === 422) {
           setSignupForm((prev) => ({
             ...prev,
             loading: false,
             formErrors: "User Already Exits",
+            isValid: false,
           }));
         }
       } catch (error) {
@@ -117,7 +129,7 @@ const SignupForm = () => {
       {submitted ? (
         <>
           <div className="f-m text-thin">
-            Welcome {firstname} ! you will redirect in home page ✈︎
+            Welcome {firstname} ! you will redirect in Login page ✈︎
           </div>
         </>
       ) : (
