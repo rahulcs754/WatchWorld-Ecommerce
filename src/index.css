@@ -1,3 +1,66 @@
+/* menu for profile */
+
+.menu {
+  position: absolute;
+  top: 46px;
+  right: 0px;
+  padding: 0.2rem 2.2rem;
+  background: var(--mint-white);
+  min-width: 9rem;
+  box-sizing: 0 5px 25px var(--light-black);
+  border-radius: 10px;
+  transition: 0.5s;
+  border: 1px solid var(--primary-color);
+}
+
+.menu.active {
+  top: 80px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: var(--light-black);
+  line-height: 1.5em;
+}
+
+.menu h3 span {
+  font-size: 14px;
+  color: var(--light-blue);
+  font-weight: 300;
+}
+
+.menu ul li {
+  list-style: none;
+  border-top: 1px solid var(--light-black);
+  display: flex;
+  align-items: center;
+}
+
+.menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--light-black);
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.menu ul li:hover a {
+  color: var(--light-blue);
+}
+
+.profile_icon_size {
+  max-width: 1.8rem;
+  max-height: 1.9rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+
 .img-c {
   width: 100%;
   height: 18.875rem;
@@ -146,7 +209,7 @@
   }
 
   .product_container {
-    margin: 1rem 0 0 0;
+    margin: 1rem;
   }
 
   .header-search {

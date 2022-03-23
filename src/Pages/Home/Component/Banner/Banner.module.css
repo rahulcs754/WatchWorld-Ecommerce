@@ -1,0 +1,13 @@
+/* --  Banner -- */
+.banner_img {
+  max-width: 100%;
+  width: 100%;
+  object-fit: fill;
+  height: 75vh;
+}
+
+@media (max-width: 767px) {
+  .banner_img {
+    height: 30vh;
+  }
+}

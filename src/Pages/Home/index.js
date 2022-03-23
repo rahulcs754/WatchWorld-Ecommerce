@@ -1,5 +1,13 @@
+import Main from "./Component/Main";
+import Footer from "../../Components/Footer";
+
 const Home = () => {
-  return <h1>Home page</h1>;
+  return (
+    <>
+      <Main />
+      <Footer />
+    </>
+  );
 };
 
 export { Home };
