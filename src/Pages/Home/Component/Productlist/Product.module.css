@@ -1,0 +1,12 @@
+.card_with_badge {
+  width: auto;
+}
+
+.product_list_box {
+  margin: 1rem 0 0 0;
+}
+
+.product_heading_box {
+  display: flex;
+  justify-content: space-between;
+}

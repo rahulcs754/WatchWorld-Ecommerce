@@ -1,11 +1,5 @@
-import { useCart } from "../../Pages/Products/Context/CartContext";
-import { useWish } from "../../Pages/Products/Context/WishContext";
-
 import { Link } from "react-router-dom";
 const Header = () => {
-  const { WishlistState } = useWish();
-  const { CartState } = useCart();
-
   return (
     <>
       <div className="rs-row">
@@ -32,11 +26,7 @@ const Header = () => {
                 <Link to="/wishlist">
                   <div className="badge">
                     <i className="fas fa-heart badge-icon" />
-                    <div className="badge-number">
-                      {WishlistState.wishlist.length
-                        ? WishlistState.wishlist.length
-                        : 0}
-                    </div>
+                    <div className="badge-number">0</div>
                   </div>
                 </Link>
               </li>
@@ -44,9 +34,7 @@ const Header = () => {
                 <Link to="/cart">
                   <div className="badge">
                     <i className="far fa-cart-arrow-down badge-icon" />
-                    <div className="badge-number">
-                      {CartState.cart.length ? CartState.cart.length : 0}
-                    </div>
+                    <div className="badge-number">0</div>
                   </div>
                 </Link>
               </li>
