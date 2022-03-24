@@ -1,5 +1,11 @@
+import SignupForm from "./Signup/SignupForm";
+
 const Signup = () => {
-  return <h1>Signup page</h1>;
+  return (
+    <>
+      <SignupForm />
+    </>
+  );
 };
 
 export { Signup };
