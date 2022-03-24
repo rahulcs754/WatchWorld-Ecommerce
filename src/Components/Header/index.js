@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu } from "./Menu";
+import { useAuthData } from "../../Context/AuthContext";
 const Header = () => {
+  const [showmenu, setShowmenu] = useState(false);
+  const { userAuth } = useAuthData();
+  const getToken = localStorage.getItem("encodedToken");
+  const { isUserLoggedIn } = userAuth;
   return (
     <>
       <div className="rs-row">
@@ -39,9 +46,21 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <button className="header-btn">
-                  <Link to="/login">Login</Link>
-                </button>
+                {isUserLoggedIn ? (
+                  <div className="badge" onClick={() => setShowmenu(!showmenu)}>
+                    <img
+                      className="badge-img profile_icon_size"
+                      src="https://picsum.photos/200"
+                      alt="badge-1"
+                    />
+                    <div className="badge-item badge-online"></div>
+                    {showmenu ? <Menu /> : null}
+                  </div>
+                ) : (
+                  <button className="header-btn">
+                    <Link to="/login">Login</Link>
+                  </button>
+                )}
               </li>
             </ul>
           </header>

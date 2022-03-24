@@ -32,14 +32,16 @@ const LoginForm = () => {
   // submit handler
   const submitHandler = async (e) => {
     e.preventDefault();
-
+    console.log("jana hai");
     try {
       const response = await axios.post(`/api/auth/login`, {
         email,
         password,
       });
+      console.log("ane do");
+      console.log(response);
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         console.log(response);
         const { encodedToken, foundUser } = response.data;
         DispatchUserAuth({
@@ -109,6 +111,9 @@ const LoginForm = () => {
         <div className="space-between mt-s">
           <button className="btn btn-primary d-inline" type="submit">
             Log In
+          </button>
+          <button className="btn btn-primary d-inline" type="submit">
+            Demo User
           </button>
           <button className="btn btn-primary d-inline">
             <Link to="/signup">Create New Account </Link>

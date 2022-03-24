@@ -11,15 +11,11 @@ export const Menu = () => {
   };
   return (
     <div className="menu">
-      <h3>{Firstname}</h3>
+      <h3>Welcome {Firstname}</h3>
       <ul>
         <li>
           <Link to="#">My profile</Link>
         </li>
-        <li>
-          <Link to="#">Edit profile</Link>
-        </li>
-
         <li onClick={logoutHandler}>
           <a href="#">Logout</a>
         </li>
