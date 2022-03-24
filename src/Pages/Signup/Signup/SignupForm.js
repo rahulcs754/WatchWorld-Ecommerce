@@ -126,7 +126,7 @@ const SignupForm = () => {
 
   return (
     <div className="signup-box">
-      {submitted ? (
+      {isValid ? (
         <>
           <div className="f-m text-thin">
             Welcome {firstname} ! you will redirect in Login page ✈︎
