@@ -76,7 +76,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className={styles.login_box}>
+    <div className={`flex flex-center ${styles.login_box}`}>
       <form className={styles.login_form} onSubmit={submitHandler}>
         <div className="login-title f-m text-center">Login</div>
         <div className="text-danger text-center">{error ?? error}</div>
