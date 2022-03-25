@@ -32,17 +32,13 @@ const LoginForm = () => {
   // submit handler
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("jana hai");
     try {
       const response = await axios.post(`/api/auth/login`, {
         email,
         password,
       });
-      console.log("ane do");
-      console.log(response);
 
       if (response.status === 200 || response.status === 201) {
-        console.log(response);
         const { encodedToken, foundUser } = response.data;
         DispatchUserAuth({
           type: "LOGIN_SUCCESS",
@@ -52,7 +48,7 @@ const LoginForm = () => {
         localStorage.setItem("encodedToken", encodedToken);
         localStorage.setItem("Firstname", foundUser.firstName);
         setError("");
-        navigate("/");
+        navigate("/products");
       }
     } catch (err) {
       setError("Login failed wrong user credentials");
@@ -68,6 +64,15 @@ const LoginForm = () => {
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setLogin((prev) => ({ ...prev, [name]: value }));
+  };
+
+  //set default entry for login
+  const handlerGuestEntry = () => {
+    setLogin((prev) => ({
+      ...prev,
+      email: "rahul@gmail.com",
+      password: "123",
+    }));
   };
 
   return (
@@ -112,8 +117,12 @@ const LoginForm = () => {
           <button className="btn btn-primary d-inline" type="submit">
             Log In
           </button>
-          <button className="btn btn-primary d-inline" type="submit">
-            Demo User
+          <button
+            className="btn btn-primary d-inline"
+            onClick={handlerGuestEntry}
+            type="button"
+          >
+            Guest Entry
           </button>
           <button className="btn btn-primary d-inline">
             <Link to="/signup">Create New Account </Link>
