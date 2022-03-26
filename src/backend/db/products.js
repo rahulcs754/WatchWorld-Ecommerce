@@ -10,7 +10,7 @@ export const products = [
     _id: uuid(),
     image:
       "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612850/e-comm/man_bgremove/5-removebg-preview_seobft.png",
-    title: "FerDas Black",
+    title: "FERARI Black",
     price: "1800",
     mrpPrice: "3800",
     rating: 4,
