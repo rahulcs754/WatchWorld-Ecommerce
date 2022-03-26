@@ -11,6 +11,7 @@
   border-radius: 10px;
   transition: 0.5s;
   border: 1px solid var(--primary-color);
+  z-index: 2;
 }
 
 .menu.active {
@@ -121,6 +122,20 @@
   gap: 2px;
 }
 
+.cart_setter .card {
+  min-width: 16rem;
+  max-width: 16rem;
+}
+
+.rating-item:hover {
+  color: hsl(40deg 23% 96%);
+}
+
+/*Filter Code title*/
+ul div.list-title {
+  font-size: 1rem;
+}
+
 /* Login css */
 .signup-box {
   display: flex;
@@ -169,8 +184,20 @@
   padding: 0.2rem;
 }
 
-.clear-text {
+.pointer-text {
   cursor: pointer;
+}
+.filter-text {
+  font-family: monospace;
+  font-size: 1.2rem;
+}
+.list-title {
+  padding: 0;
+}
+
+.clear_text_button {
+  border: 1px solid var(--light-black);
+  padding: 0 0.66rem;
 }
 
 /*address management*/

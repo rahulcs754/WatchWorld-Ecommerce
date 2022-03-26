@@ -1,12 +1,18 @@
+import { useCart } from "../../Pages/Products/Context/CartContext";
+import { useWish } from "../../Pages/Products/Context/WishContext";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Menu } from "./Menu";
+
 import { useAuthData } from "../../Context/AuthContext";
+
+import { CartCounter } from "./Components/CartCounter";
+import { WishlistCounter } from "./Components/WishlistCounter";
+import { UserDetails } from "./Components/UserDetails";
 const Header = () => {
-  const [showmenu, setShowmenu] = useState(false);
+  const { WishlistState } = useWish();
+  const { CartState } = useCart();
   const { userAuth } = useAuthData();
-  const getToken = localStorage.getItem("encodedToken");
   const { isUserLoggedIn } = userAuth;
+
   return (
     <>
       <div className="rs-row">
@@ -30,37 +36,19 @@ const Header = () => {
                 <Link to="/"> Home </Link>
               </li>
               <li>
-                <Link to="/wishlist">
-                  <div className="badge">
-                    <i className="fas fa-heart badge-icon" />
-                    <div className="badge-number">0</div>
-                  </div>
-                </Link>
+                <WishlistCounter
+                  isUserLoggedIn={isUserLoggedIn}
+                  wishlist={WishlistState.wishlist}
+                />
               </li>
               <li>
-                <Link to="/cart">
-                  <div className="badge">
-                    <i className="far fa-cart-arrow-down badge-icon" />
-                    <div className="badge-number">0</div>
-                  </div>
-                </Link>
+                <CartCounter
+                  isUserLoggedIn={isUserLoggedIn}
+                  cart={CartState.cart}
+                />
               </li>
               <li>
-                {isUserLoggedIn ? (
-                  <div className="badge" onClick={() => setShowmenu(!showmenu)}>
-                    <img
-                      className="badge-img profile_icon_size"
-                      src="https://picsum.photos/200"
-                      alt="badge-1"
-                    />
-                    <div className="badge-item badge-online"></div>
-                    {showmenu ? <Menu /> : null}
-                  </div>
-                ) : (
-                  <button className="header-btn">
-                    <Link to="/login">Login</Link>
-                  </button>
-                )}
+                <UserDetails isUserLoggedIn={isUserLoggedIn} />
               </li>
             </ul>
           </header>
