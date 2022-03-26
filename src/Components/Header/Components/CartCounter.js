@@ -13,7 +13,7 @@ export const CartCounter = ({ isUserLoggedIn, cart }) => {
         <Link to="/login">
           <div className="badge">
             <i className="far fa-cart-arrow-down badge-icon" />
-            <div className="badge-number">{cart.length ? cart.length : 0}</div>
+            <div className="badge-number"></div>
           </div>
         </Link>
       )}

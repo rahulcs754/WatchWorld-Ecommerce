@@ -200,6 +200,14 @@ ul div.list-title {
   padding: 0 0.66rem;
 }
 
+.filter-container {
+  font-family: monospace;
+}
+
+.text-filter {
+  padding: 0.5rem;
+}
+
 /*address management*/
 .user-profile-address {
   align-items: center;

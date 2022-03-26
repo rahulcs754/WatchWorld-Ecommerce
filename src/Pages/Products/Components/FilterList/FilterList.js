@@ -12,7 +12,7 @@ const FilterList = () => {
       <div className="f-s text-filter">
         <span className="filter-text">Filter</span>
         <span
-          className="filter-text pointer-text"
+          className="filter-text pointer-text clear_text_button"
           onClick={() => FilterDispatch({ type: "CLEAR" })}
         >
           Clear
