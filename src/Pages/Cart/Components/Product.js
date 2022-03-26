@@ -1,6 +1,11 @@
 import { useWish } from "../../Products/Context/WishContext";
 import { useProduct } from "../../Products/Context/ProductContext";
 import { useCart } from "../../Products/Context/CartContext";
+
+import { useAuthData } from "../../../Context/AuthContext";
+
+import { removeCart, removeWishlist } from "../../../ApiService";
+
 export const Product = ({
   _id,
   image,
@@ -13,9 +18,15 @@ export const Product = ({
   const { WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
   const { CartDispatch } = useCart();
+  const { userAuth } = useAuthData();
+  const { isUserLoggedIn, encodedToken } = userAuth;
   const productDetails = { _id, qty: 1, amount: price };
 
   const removeHandler = (productDetails) => {
+    // using api remove product in cart
+    removeCart(productDetails._id, encodedToken);
+
+    //remove product in cart
     CartDispatch({
       type: "REMOVE_TO_CART",
       payload: productDetails._id,
@@ -33,6 +44,9 @@ export const Product = ({
   };
 
   const wishlistHandler = (productId) => {
+    // added using api
+    addWishlist(productDetails._id, encodedToken);
+    // remove wishlist using context
     WishlistDispatch({ type: "ADD_AND_REMOVE_WISHLIST", payload: productId });
     ProductDispatch({ type: "IS_LIKED", payload: productId });
   };
