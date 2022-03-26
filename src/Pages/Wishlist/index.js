@@ -1,5 +1,11 @@
+import WishlistProducts from "./Components/WishlistProducts";
+
 const Wishlist = () => {
-  return <h1>Wish list page</h1>;
+  return (
+    <>
+      <WishlistProducts />
+    </>
+  );
 };
 
 export { Wishlist };

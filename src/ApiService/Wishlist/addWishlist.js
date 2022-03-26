@@ -12,7 +12,6 @@ export const addWishlist = async (productId, token) => {
       }
     );
     if (status === 200 || status === 201) {
-      alert("Added to Wishlist");
       return { data, status };
     }
   } catch (error) {

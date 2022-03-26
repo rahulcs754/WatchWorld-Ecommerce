@@ -1,10 +1,9 @@
 import { useWish } from "../../Products/Context/WishContext";
 import { useProduct } from "../../Products/Context/ProductContext";
 import { useCart } from "../../Products/Context/CartContext";
-
 import { useAuthData } from "../../../Context/AuthContext";
-
 import { removeCart, removeWishlist } from "../../../ApiService";
+import { useNavigate } from "react-router-dom";
 
 export const Product = ({
   _id,
@@ -15,12 +14,17 @@ export const Product = ({
   isLiked,
   qty,
 }) => {
+  const navigate = useNavigate();
   const { WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
   const { CartDispatch } = useCart();
   const { userAuth } = useAuthData();
   const { isUserLoggedIn, encodedToken } = userAuth;
   const productDetails = { _id, qty: 1, amount: price };
+
+  if (isUserLoggedIn) {
+    navigate("/login");
+  }
 
   const removeHandler = (productDetails) => {
     // using api remove product in cart
@@ -47,7 +51,7 @@ export const Product = ({
     // added using api
     addWishlist(productDetails._id, encodedToken);
     // remove wishlist using context
-    WishlistDispatch({ type: "ADD_AND_REMOVE_WISHLIST", payload: productId });
+    WishlistDispatch({ type: "ADD_PRODUCT_WISHLIST", payload: productId });
     ProductDispatch({ type: "IS_LIKED", payload: productId });
   };
 

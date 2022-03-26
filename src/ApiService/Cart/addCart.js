@@ -12,9 +12,8 @@ export const addCart = async (product, token) => {
       }
     );
     if (status === 200 || status === 201) {
-      alert("Product added into cart");
+      return { data, status };
     }
-    return data;
   } catch (error) {
     return false;
   }

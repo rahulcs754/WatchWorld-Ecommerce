@@ -8,7 +8,6 @@ export const removeCart = async (productId, token) => {
       },
     });
     if (status === 200 || status === 201) {
-      alert("Delete from Cart");
       return { data, status };
     }
   } catch (error) {

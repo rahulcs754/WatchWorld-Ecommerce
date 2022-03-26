@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const removeWishlist = async (productId, token) => {
+export const getWishlist = async (token) => {
   try {
-    const { data, status } = axios.delete(`/api/user/wishlist/${productId}`, {
+    const { data, status } = await axios.get("/api/user/wishlist", {
       headers: {
         authorization: token,
       },
