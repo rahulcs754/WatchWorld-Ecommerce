@@ -66,7 +66,7 @@ const Product = (props) => {
       </div>
       <div className="card-footer ">
         {isSelected ? (
-          <button className={`btn btn-warning ${styles.addtocartText} `}>
+          <button className={`btn btn-primary ${styles.addtocartText} `}>
             <Link to="/cart">
               <i className="fas fa-shopping-cart mr-s" />
               Go To Cart
