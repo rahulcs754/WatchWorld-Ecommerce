@@ -26,12 +26,26 @@ const CartReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((p) => p._id !== payload),
       };
+    case "INCREMENT_QTY":
+      return {
+        ...state,
+        cart: state.cart.map((p) =>
+          p._id === payload ? { ...p, qty: p.qty + 1 } : p
+        ),
+      };
+    case "DECREMENT_QTY":
+      return {
+        ...state,
+        cart: state.cart.map((p) =>
+          p._id === payload ? { ...p, qty: p.qty - 1 } : p
+        ),
+      };
 
     case "CALCULATE_TOTAL_AMOUNT":
       return {
         ...state,
         total: state.cart.reduce((acc, curr) => {
-          return Number(acc) + Number(curr.amount);
+          return Number(acc) + Number(curr.amount * curr.qty);
         }, 0),
       };
     default:
