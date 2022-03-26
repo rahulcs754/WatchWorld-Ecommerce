@@ -38,7 +38,6 @@ export const Product = ({
   };
 
   const incrementHandler = (productId) => {
-    console.log("dab rahe ho ki nahi", productId);
     CartDispatch({
       type: "INCREMENT_QTY",
       payload: productId,
