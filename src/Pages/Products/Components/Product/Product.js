@@ -50,17 +50,18 @@ const Product = (props) => {
     ProductDispatch({ type: "IS_LIKED", payload: productId });
   };
 
+  const DiscountPercentage = (((mrpPrice - price) / mrpPrice) * 100).toFixed();
   return (
     <div className="card card-overlay">
       <img src={image} className="card-image img-c" alt="Card-Image" />
 
       <div className="card-header">
-        <div className="card-title">{title}</div>
+        <div className="card-title ">{title}</div>
       </div>
       <div className="card-info">
         <p className="card-price">$ {price}</p>
         <p className="mrp-price">$ {mrpPrice}</p>
-        <p className="card-discount">{discount}</p>
+        <p className="card-discount">{`${DiscountPercentage} % off`}</p>
         <Rating starValue={rating} />
       </div>
       <div className="card-footer ">

@@ -22,7 +22,7 @@ const FilterList = () => {
         <div className="list-title f-s">Price</div>
         <li className="list-item-stacked flex flex-column">
           <div className="flex price-slider">
-            <div className="price-slider-value f-s">1</div>
+            <div className="price-slider-value f-s">100</div>
             <div className="price-slider-value f-s">5000</div>
           </div>
           <input

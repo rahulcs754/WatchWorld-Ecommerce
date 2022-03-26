@@ -240,6 +240,30 @@ ul div.list-title {
   border: 1px solid var(--light-black);
 }
 
+.notification-container {
+  font-size: 14px;
+  box-sizing: border-box;
+  position: fixed;
+}
+
+/* Toast */
+.toast,
+.notify {
+  animation: slideDown 3s;
+}
+@keyframes slideDown {
+  0%,
+  100% {
+    -webkit-transform: translateY(-100px);
+  }
+  10%,
+  90% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+/* toast container */
+
 @media (max-width: 767px) {
   .rs-row {
     grid-template-columns: repeat(2, 1fr);
