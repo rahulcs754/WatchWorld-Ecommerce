@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
 /* menu for profile */
 
 .menu {
@@ -11,6 +12,7 @@
   border-radius: 10px;
   transition: 0.5s;
   border: 1px solid var(--primary-color);
+  z-index: 2;
 }
 
 .menu.active {
@@ -80,7 +82,6 @@
 }
 
 /* my cart css  */
-
 .qty {
   width: 40px;
   height: 25px;
@@ -119,6 +120,20 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.cart_setter .card {
+  min-width: 16rem;
+  max-width: 16rem;
+}
+
+.rating-item:hover {
+  color: var(--mint-white);
+}
+
+/*Filter Code title*/
+ul div.list-title {
+  font-size: 1rem;
 }
 
 /* Login css */
@@ -169,8 +184,38 @@
   padding: 0.2rem;
 }
 
-.clear-text {
+.pointer-text {
   cursor: pointer;
+}
+.filter-text {
+  font-size: 1.2rem;
+}
+
+.filter-container,
+.product_list_container {
+  font-family: "Lato", sans-serif;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.list-title {
+  padding: 0;
+}
+
+.clear_text_button {
+  border: 1px solid var(--light-black);
+  padding: 0 0.66rem;
+}
+
+.filter-container {
+  font-family: monospace;
+}
+
+.text-filter {
+  padding: 0.5rem;
 }
 
 /*address management*/
@@ -194,6 +239,30 @@
 .border {
   border: 1px solid var(--light-black);
 }
+
+.notification-container {
+  font-size: 14px;
+  box-sizing: border-box;
+  position: fixed;
+}
+
+/* Toast */
+.toast,
+.notify {
+  animation: slideDown 3s;
+}
+@keyframes slideDown {
+  0%,
+  100% {
+    -webkit-transform: translateY(-100px);
+  }
+  10%,
+  90% {
+    -webkit-transform: translateY(0px);
+  }
+}
+
+/* toast container */
 
 @media (max-width: 767px) {
   .rs-row {

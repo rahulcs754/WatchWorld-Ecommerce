@@ -1,0 +1,19 @@
+.addtocartText {
+  color: var(--mint-white);
+}
+
+.wishlistIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.defaultWishlistIcon {
+  color: var(--light-blue);
+}
+
+.selectedwishlistIcon {
+  color: var(--alert-color);
+}
