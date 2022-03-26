@@ -8,7 +8,6 @@ const ProductList = ({ cart }) => {
   return (
     <div className="item-bucket">
       {cart.map((item) => {
-        /* */
         const ProductDetails = data.find((product) => product._id === item._id);
         if (ProductDetails !== undefined) {
           return <Product {...ProductDetails} qty={item.qty} />;
