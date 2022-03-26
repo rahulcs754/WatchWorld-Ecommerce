@@ -15,7 +15,6 @@ export const WishlistCounter = ({ isUserLoggedIn, wishlist }) => {
         <Link to="/login">
           <div className="badge">
             <i className="fas fa-heart badge-icon" />
-            <div className="badge-number"></div>
           </div>
         </Link>
       )}

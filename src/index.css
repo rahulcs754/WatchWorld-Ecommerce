@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
 /* menu for profile */
 
 .menu {
@@ -81,7 +82,6 @@
 }
 
 /* my cart css  */
-
 .qty {
   width: 40px;
   height: 25px;
@@ -128,7 +128,7 @@
 }
 
 .rating-item:hover {
-  color: hsl(40deg 23% 96%);
+  color: var(--mint-white);
 }
 
 /*Filter Code title*/
@@ -188,9 +188,19 @@ ul div.list-title {
   cursor: pointer;
 }
 .filter-text {
-  font-family: monospace;
   font-size: 1.2rem;
 }
+
+.filter-container,
+.product_list_container {
+  font-family: "Lato", sans-serif;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 .list-title {
   padding: 0;
 }
