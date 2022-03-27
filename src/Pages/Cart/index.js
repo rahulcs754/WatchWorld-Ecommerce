@@ -1,8 +1,6 @@
 import { useCart } from "../Products/Context/CartContext";
 
-import CartCounter from "./Components/CartCounter";
-import ProductList from "./Components/ProductList";
-import CartTotal from "./Components/CartTotal";
+import { CartCounter, ProductList, CartTotal } from "./Components";
 
 export const Cart = () => {
   const { CartState } = useCart();

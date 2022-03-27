@@ -18,13 +18,15 @@ export const Product = ({
   const { WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
   const { CartDispatch } = useCart();
-  const { userAuth } = useAuthData();
-  const { isUserLoggedIn, encodedToken } = userAuth;
+  const {
+    userAuth: { encodedToken },
+  } = useAuthData();
+
   const productDetails = { _id, qty: 1, amount: price };
 
-  const removeHandler = (productDetails) => {
+  const removeHandler = async (productDetails) => {
     // using api remove product in cart
-    removeCart(productDetails._id, encodedToken);
+    await removeCart(productDetails._id, encodedToken);
 
     //remove product in cart
     CartDispatch({
@@ -43,9 +45,9 @@ export const Product = ({
     });
   };
 
-  const wishlistHandler = (productId) => {
+  const wishlistHandler = async (productId) => {
     // added using api
-    addWishlist(productDetails._id, encodedToken);
+    await addWishlist(productDetails._id, encodedToken);
     // remove wishlist using context
     WishlistDispatch({ type: "ADD_AND_REMOVE_WISHLIST", payload: productId });
     ProductDispatch({ type: "IS_LIKED", payload: productId });

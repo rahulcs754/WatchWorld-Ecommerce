@@ -114,6 +114,8 @@
 .mycart-total-details {
   min-width: 38%;
   max-width: 38%;
+  border: 1px solid var(--light-black);
+  padding: 0.51rem;
 }
 
 .mycart-amount-list {
