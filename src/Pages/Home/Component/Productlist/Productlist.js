@@ -19,7 +19,7 @@ const Productlist = ({ headingTitle, productType }) => {
         {popularProducts.map(({ image, title }, i) => {
           return (
             <div className="col-sm-3" key={i}>
-              <Link to="/products">
+              <Link to="/products/All Product">
                 <div className="card card-overlay">
                   <div>
                     <img
