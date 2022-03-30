@@ -5,13 +5,13 @@ import Product from "../Product/Product";
 const ProductsList = () => {
   const { ProductListFiltered } = useFilter();
   const params = useParams();
+
   const ProductFilterByCategory =
     params.category !== "All Product"
       ? ProductListFiltered.filter(
           ({ categoryName }) => categoryName === params.category
         )
       : ProductListFiltered;
-  console.log(params.category);
 
   return (
     <div className="col-10 col-md-10 col-lg-10 ml-l">
