@@ -18,7 +18,7 @@ const Routespaths = () => {
       <Route exact path="/" element={<Home />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/products" element={<Products />}></Route>
+      <Route path="/products/:category" element={<Products />}></Route>
       <Route path="/address" element={<Address />}></Route>
       <Route path="/wishlist" element={<Wishlist />}></Route>
       <Route path="/cart" element={<Cart />}></Route>

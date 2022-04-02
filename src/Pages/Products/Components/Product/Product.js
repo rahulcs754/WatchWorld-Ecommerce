@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthData } from "../../../../Context/AuthContext";
 
 import { Rating } from "../../../../Components/Rating/index";
+import { addCart } from "../../../../ApiService";
+import axios from "axios";
 
 const Product = (props) => {
   const {
@@ -29,23 +31,34 @@ const Product = (props) => {
   const { CartDispatch } = useCart();
   const { userAuth } = useAuthData();
   const navigate = useNavigate();
-  const { isUserLoggedIn } = userAuth;
+  const { isUserLoggedIn, encodedToken } = userAuth;
 
-  const productDetails = { _id, qty: 1, amount: price };
+  const productDetails = { _id: _id, qty: 1, amount: price };
 
   const addHandler = (productDetails) => {
-    CartDispatch({ type: "ADD_TO_CART", payload: productDetails });
-    ProductDispatch({
-      type: "DECREASE_PRODUCT_QTY",
-      payload: productDetails._id,
-    });
-    ProductDispatch({
-      type: "IS_SELECTED",
-      payload: productDetails._id,
-    });
+    // api call to add item in cart
+    addCart(productDetails, encodedToken, CartDispatch, ProductDispatch);
   };
 
-  const wishlistHandler = (productId) => {
+  const wishlistHandler = async (productId) => {
+    // api call to post data
+    try {
+      const { data, status } = await axios.post(
+        "/api/user/wishlist",
+        { product: { _id: productId } },
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (status === 200 || status === 201) {
+        alert("Added to Wishlist");
+      }
+    } catch (error) {
+      alert(error);
+    }
+
     WishlistDispatch({ type: "ADD_AND_REMOVE_WISHLIST", payload: productId });
     ProductDispatch({ type: "IS_LIKED", payload: productId });
   };
@@ -66,7 +79,7 @@ const Product = (props) => {
       </div>
       <div className="card-footer ">
         {isSelected ? (
-          <button className={`btn btn-warning ${styles.addtocartText} `}>
+          <button className={`btn btn-primary ${styles.addtocartText} `}>
             <Link to="/cart">
               <i className="fas fa-shopping-cart mr-s" />
               Go To Cart

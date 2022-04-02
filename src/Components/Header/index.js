@@ -35,6 +35,11 @@ const Header = () => {
               <li>
                 <Link to="/"> Home </Link>
               </li>
+              {isUserLoggedIn ? (
+                <li>
+                  <Link to="/products/All Product"> Watches </Link>
+                </li>
+              ) : null}
               <li>
                 <WishlistCounter
                   isUserLoggedIn={isUserLoggedIn}

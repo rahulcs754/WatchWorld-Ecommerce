@@ -15,22 +15,24 @@ export const Category = () => {
       </div>
       <div className="rs-row m-l">
         <div className="col-sm-12 flex flex-row flex-center flex-grow gap-md">
-          {productCategory.map(({ linkCategory, bannerImage }, i) => {
-            return (
-              <div className="col-sm-3" key={i}>
-                <div className="card card-shadow img-square">
-                  <Link to={linkCategory}>
-                    <img
-                      src={bannerImage}
-                      className="card-image img-lg"
-                      alt="Card-Image"
-                      loading="lazy"
-                    />
-                  </Link>
+          {productCategory.map(
+            ({ linkCategory, bannerImage, categoryName }, i) => {
+              return (
+                <div className="col-sm-3" key={i}>
+                  <div className="card card-shadow img-square">
+                    <Link to={`/products/${categoryName}`}>
+                      <img
+                        src={bannerImage}
+                        className="card-image img-lg"
+                        alt="Card-Image"
+                        loading="lazy"
+                      />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            }
+          )}
         </div>
       </div>
     </>
