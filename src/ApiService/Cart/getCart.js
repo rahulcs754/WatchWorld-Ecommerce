@@ -1,19 +1,38 @@
 import axios from "axios";
+import { useState, useEffect } from "react";
 
-export const getCart = async (token) => {
-  try {
-    const {
-      data: { cart },
-      status,
-    } = await axios.get("/api/user/cart", {
-      headers: {
-        authorization: token,
-      },
-    });
-    if (status === 200 || status === 201) {
-      return { error: 0, cart, status };
+export const getCart = async () => {
+  const [cart, setCart] = useState({
+    cartResponse: [],
+    cartError: "",
+    cartLoading: true,
+  });
+
+  useEffect(() => {
+    fetchCartData();
+  }, []);
+
+  const fetchCartData = async () => {
+    try {
+      const {
+        data: { cart },
+        status,
+      } = await axios.get("/api/user/cart", {
+        headers: {
+          authorization: localStorage.getItem("encodedToken"),
+        },
+      });
+      if (status === 200 || status === 201) {
+        setCart((prev) => ({ ...prev, cartResponse: cart }));
+      }
+    } catch (error) {
+      setCart((prev) => ({ ...prev, cartError: error }));
+    } finally {
+      setCart((prev) => ({ ...prev, cartLoading: false }));
+      setCartLoading(false);
     }
-  } catch (error) {
-    return { error: 0 };
-  }
+  };
+
+  const { cartResponse, cartError, cartLoading } = cart;
+  return { cartResponse, cartError, cartLoading };
 };

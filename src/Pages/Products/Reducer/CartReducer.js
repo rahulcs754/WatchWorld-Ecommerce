@@ -5,40 +5,24 @@ const CartReducer = (state, action) => {
 
   switch (action.type) {
     case "ADD_TO_CART":
-      if (findObj === undefined) {
-        return {
-          ...state,
-          cart: [...state.cart, action.payload],
-        };
-      } else {
-        return {
-          ...state,
-          cart: state.cart.map((item) =>
-            item._id === payload?._id
-              ? { ...findObj, qty: findObj.qty + 1 }
-              : item
-          ),
-        };
-      }
-
+      return {
+        ...state,
+        cart: action.payload,
+      };
     case "REMOVE_TO_CART":
       return {
         ...state,
-        cart: state.cart.filter((p) => p._id !== payload),
+        cart: action.payload,
       };
     case "INCREMENT_QTY":
       return {
         ...state,
-        cart: state.cart.map((p) =>
-          p._id === payload ? { ...p, qty: p.qty + 1 } : p
-        ),
+        cart: action.payload,
       };
     case "DECREMENT_QTY":
       return {
         ...state,
-        cart: state.cart.map((p) =>
-          p._id === payload ? { ...p, qty: p.qty - 1 } : p
-        ),
+        cart: action.payload,
       };
 
     case "CALCULATE_TOTAL_AMOUNT":

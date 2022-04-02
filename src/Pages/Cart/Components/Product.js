@@ -4,7 +4,12 @@ import { useCart } from "../../Products/Context/CartContext";
 
 import { useAuthData } from "../../../Context/AuthContext";
 
-import { removeCart, removeWishlist } from "../../../ApiService";
+import {
+  removeCart,
+  removeWishlist,
+  decrementCartQty,
+  incrementCartQty,
+} from "../../../ApiService";
 
 export const Product = ({
   _id,
@@ -24,25 +29,9 @@ export const Product = ({
 
   const productDetails = { _id, qty: 1, amount: price };
 
-  const removeHandler = async (productDetails) => {
+  const removeHandler = (productDetails) => {
     // using api remove product in cart
-    await removeCart(productDetails._id, encodedToken);
-
-    //remove product in cart
-    CartDispatch({
-      type: "REMOVE_TO_CART",
-      payload: productDetails._id,
-    });
-
-    ProductDispatch({
-      type: "INCREASE_PRODUCT",
-      payload: productDetails._id,
-    });
-
-    ProductDispatch({
-      type: "IS_SELECTED",
-      payload: productDetails._id,
-    });
+    removeCart(productDetails._id, encodedToken, CartDispatch, ProductDispatch);
   };
 
   const wishlistHandler = async (productId) => {
@@ -54,24 +43,18 @@ export const Product = ({
   };
 
   const incrementHandler = (productId) => {
-    CartDispatch({
-      type: "INCREMENT_QTY",
-      payload: productId,
-    });
+    //api call
+    incrementCartQty(productId, encodedToken, CartDispatch);
   };
 
   const decrementHandler = (productId) => {
-    if (qty < 2) {
-      CartDispatch({
-        type: "REMOVE_TO_CART",
-        payload: productDetails._id,
-      });
-    } else {
-      CartDispatch({
-        type: "DECREMENT_QTY",
-        payload: productId,
-      });
-    }
+    decrementCartQty(
+      productId,
+      encodedToken,
+      qty,
+      CartDispatch,
+      ProductDispatch
+    );
   };
 
   return (

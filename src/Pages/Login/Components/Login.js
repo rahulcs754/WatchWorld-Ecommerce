@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthData } from "../../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 const LoginForm = () => {
   const navigate = useNavigate();
 
@@ -47,11 +47,17 @@ const LoginForm = () => {
         });
         localStorage.setItem("encodedToken", encodedToken);
         localStorage.setItem("Firstname", foundUser.firstName);
-        setError("");
+        toast.success("You are successfully logged in", {
+          position: "bottom-right",
+          autoClose: 3000,
+        });
         navigate("/products/All Product");
       }
     } catch (err) {
-      setError("Login failed wrong user credentials");
+      toast.warning("Login failed wrong user credentials", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -67,12 +73,27 @@ const LoginForm = () => {
   };
 
   //set default entry for login
-  const handlerGuestEntry = () => {
-    setLogin((prev) => ({
-      ...prev,
+  const handlerGuestEntry = async () => {
+    const response = await axios.post(`/api/auth/login`, {
       email: "rahul@gmail.com",
       password: "123",
-    }));
+    });
+
+    if (response.status === 200 || response.status === 201) {
+      const { encodedToken, foundUser } = response.data;
+      DispatchUserAuth({
+        type: "LOGIN_SUCCESS",
+        encodedToken: encodedToken,
+        userDetails: foundUser,
+      });
+      localStorage.setItem("encodedToken", encodedToken);
+      localStorage.setItem("Firstname", foundUser.firstName);
+      toast.success("You are successfully logged in", {
+        position: "bottom-right",
+        autoClose: 3000,
+      });
+      navigate("/products/All Product");
+    }
   };
 
   return (
