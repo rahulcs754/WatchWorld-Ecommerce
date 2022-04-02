@@ -2,7 +2,7 @@ import { Product } from "./Product";
 
 import { useProduct } from "../../Products/Context/ProductContext";
 
-const ProductList = ({ cart }) => {
+export const ProductList = ({ cart }) => {
   const { ProductState } = useProduct();
   const { data } = ProductState;
   return (
@@ -16,5 +16,3 @@ const ProductList = ({ cart }) => {
     </div>
   );
 };
-
-export default ProductList;

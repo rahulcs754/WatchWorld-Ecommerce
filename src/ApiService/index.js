@@ -1,14 +1,7 @@
-import { addCart } from "./Cart/addCart";
-import { getCart } from "./Cart/getCart";
-import { removeCart } from "./Cart/removeCart";
-import { addWishlist } from "./Wishlist/addWishlist";
-import { removeWishlist } from "./Wishlist/removeWishlist";
-import { getWishlist } from "./Wishlist/getWishlist";
-export {
-  addCart,
-  getCart,
-  removeCart,
-  addWishlist,
-  removeWishlist,
-  getWishlist,
-};
+export { addCart } from "./Cart/addCart";
+export { getCart } from "./Cart/getCart";
+export { removeCart } from "./Cart/removeCart";
+export { incrementCartQty } from "./Cart/incrementCartQty";
+export { decrementCartQty } from "./Cart/decrementCartQty";
+export { addWishlist } from "./Wishlist/addWishlist";
+export { removeWishlist } from "./Wishlist/removeWishlist";

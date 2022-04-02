@@ -2,8 +2,12 @@ import { useWish } from "../../Products/Context/WishContext";
 import { useProduct } from "../../Products/Context/ProductContext";
 import { useCart } from "../../Products/Context/CartContext";
 import { useAuthData } from "../../../Context/AuthContext";
-import { removeCart, removeWishlist } from "../../../ApiService";
-import { useNavigate } from "react-router-dom";
+import {
+  removeCart,
+  removeWishlist,
+  decrementCartQty,
+  incrementCartQty,
+} from "../../../ApiService";
 
 export const Product = ({
   _id,
@@ -18,8 +22,10 @@ export const Product = ({
   const { WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
   const { CartDispatch } = useCart();
-  const { userAuth } = useAuthData();
-  const { isUserLoggedIn, encodedToken } = userAuth;
+  const {
+    userAuth: { encodedToken },
+  } = useAuthData();
+
   const productDetails = { _id, qty: 1, amount: price };
 
   if (isUserLoggedIn) {
@@ -28,52 +34,30 @@ export const Product = ({
 
   const removeHandler = (productDetails) => {
     // using api remove product in cart
-    removeCart(productDetails._id, encodedToken);
-
-    //remove product in cart
-    CartDispatch({
-      type: "REMOVE_TO_CART",
-      payload: productDetails._id,
-    });
-
-    ProductDispatch({
-      type: "INCREASE_PRODUCT",
-      payload: productDetails._id,
-    });
-
-    ProductDispatch({
-      type: "IS_SELECTED",
-      payload: productDetails._id,
-    });
+    removeCart(productDetails._id, encodedToken, CartDispatch, ProductDispatch);
   };
 
-  const wishlistHandler = (productId) => {
+  const wishlistHandler = async (productId) => {
     // added using api
-    addWishlist(productDetails._id, encodedToken);
+    await addWishlist(productDetails._id, encodedToken);
     // remove wishlist using context
     WishlistDispatch({ type: "ADD_PRODUCT_WISHLIST", payload: productId });
     ProductDispatch({ type: "IS_LIKED", payload: productId });
   };
 
   const incrementHandler = (productId) => {
-    CartDispatch({
-      type: "INCREMENT_QTY",
-      payload: productId,
-    });
+    //api call
+    incrementCartQty(productId, encodedToken, CartDispatch);
   };
 
   const decrementHandler = (productId) => {
-    if (qty < 2) {
-      CartDispatch({
-        type: "REMOVE_TO_CART",
-        payload: productDetails._id,
-      });
-    } else {
-      CartDispatch({
-        type: "DECREMENT_QTY",
-        payload: productId,
-      });
-    }
+    decrementCartQty(
+      productId,
+      encodedToken,
+      qty,
+      CartDispatch,
+      ProductDispatch
+    );
   };
 
   return (

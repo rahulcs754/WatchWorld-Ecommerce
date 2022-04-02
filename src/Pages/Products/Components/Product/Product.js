@@ -36,20 +36,7 @@ const Product = (props) => {
 
   const addHandler = async (productDetails) => {
     // api call to add item in cart
-
-    await addCart(productDetails, encodedToken);
-
-    CartDispatch({ type: "ADD_TO_CART", payload: productDetails });
-
-    ProductDispatch({
-      type: "DECREASE_PRODUCT_QTY",
-      payload: productDetails._id,
-    });
-
-    ProductDispatch({
-      type: "IS_SELECTED",
-      payload: productDetails._id,
-    });
+    addCart(productDetails, encodedToken, CartDispatch, ProductDispatch);
   };
 
   const wishlistHandler = async (productId) => {

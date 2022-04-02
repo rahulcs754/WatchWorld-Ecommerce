@@ -1,10 +1,8 @@
 import { useCart } from "../Products/Context/CartContext";
-
-import CartCounter from "./Components/CartCounter";
-import ProductList from "./Components/ProductList";
-import CartTotal from "./Components/CartTotal";
 import { useAuthData } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { CartCounter, ProductList, CartTotal } from "./Components";
+
 export const Cart = () => {
   const navigate = useNavigate();
   const { userAuth } = useAuthData();
