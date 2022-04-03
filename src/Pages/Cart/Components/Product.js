@@ -1,48 +1,47 @@
-import { useWish } from "../../Products/Context/WishContext";
-import { useProduct } from "../../Products/Context/ProductContext";
-import { useCart } from "../../Products/Context/CartContext";
+import { useWish, useProduct, useCart } from "../../Products/Context";
 import { useAuthData } from "../../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import {
   removeCart,
   removeWishlist,
   decrementCartQty,
+  addWishlist,
   incrementCartQty,
 } from "../../../ApiService";
+import { useEffect } from "react";
 
-export const Product = ({
-  _id,
-  image,
-  title,
-  price,
-  mrpPrice,
-  isLiked,
-  qty,
-}) => {
+export const Product = (item) => {
+  const { _id, image, title, price, mrpPrice, isLiked, qty } = item;
   const navigate = useNavigate();
-  const { WishlistDispatch } = useWish();
+  const { WishlistState, WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
   const { CartDispatch } = useCart();
   const {
-    userAuth: { encodedToken },
+    userAuth: { encodedToken, isUserLoggedIn },
   } = useAuthData();
 
   const productDetails = { _id, qty: 1, amount: price };
 
-  if (isUserLoggedIn) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    if (!isUserLoggedIn) {
+      navigate("/login");
+    }
+  }, []);
 
   const removeHandler = (productDetails) => {
     // using api remove product in cart
     removeCart(productDetails._id, encodedToken, CartDispatch, ProductDispatch);
   };
 
-  const wishlistHandler = async (productId) => {
+  const wishlistHandler = (productDetails) => {
     // added using api
-    await addWishlist(productDetails._id, encodedToken);
-    // remove wishlist using context
-    WishlistDispatch({ type: "ADD_PRODUCT_WISHLIST", payload: productId });
-    ProductDispatch({ type: "IS_LIKED", payload: productId });
+    addWishlist(
+      productDetails,
+      encodedToken,
+      WishlistDispatch,
+      ProductDispatch,
+      WishlistState
+    );
   };
 
   const incrementHandler = (productId) => {
@@ -90,7 +89,7 @@ export const Product = ({
           </div>
           <button
             className="btn btn-primary width-100 "
-            onClick={() => wishlistHandler(_id)}
+            onClick={() => wishlistHandler(item)}
           >
             {isLiked ? "Remove Wishlist" : "Add To Wishlist"}
           </button>

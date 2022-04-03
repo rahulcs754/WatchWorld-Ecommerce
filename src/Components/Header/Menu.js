@@ -11,7 +11,8 @@ export const Menu = () => {
   };
   return (
     <div className="menu">
-      <h3>Welcome {Firstname}</h3>
+      <h3 className="profile_name f-s">Welcome {Firstname}</h3>
+
       <ul>
         <li>
           <Link to="#">My profile</Link>

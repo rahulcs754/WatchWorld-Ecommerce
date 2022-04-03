@@ -5,42 +5,78 @@ export const addCart = async (
   product,
   token,
   CartDispatch,
-  ProductDispatch
+  ProductDispatch,
+  CartState
 ) => {
-  try {
-    const {
-      data: { cart },
-      status,
-    } = await axios.post(
-      "/api/user/cart",
-      { product },
-      {
-        headers: {
-          authorization: token,
-        },
+  const findItem = CartState.cart.find((item) => item._id === product._id);
+
+  if (findItem === undefined) {
+    try {
+      const {
+        data: { cart },
+        status,
+      } = await axios.post(
+        "/api/user/cart",
+        { product },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (status === 200 || status === 201) {
+        CartDispatch({ type: "ADD_TO_CART", payload: cart });
+
+        ProductDispatch({
+          type: "DECREASE_PRODUCT_QTY",
+          payload: product._id,
+        });
+
+        ProductDispatch({
+          type: "IS_SELECTED",
+          payload: product._id,
+        });
+        toast.success("Add item to cart", {
+          position: "bottom-right",
+          autoClose: 2000,
+        });
       }
-    );
-    if (status === 200 || status === 201) {
-      CartDispatch({ type: "ADD_TO_CART", payload: cart });
-
-      ProductDispatch({
-        type: "DECREASE_PRODUCT_QTY",
-        payload: product._id,
-      });
-
-      ProductDispatch({
-        type: "IS_SELECTED",
-        payload: product._id,
-      });
-      toast.success("Add item to cart", {
+    } catch (error) {
+      toast.warning("Oops something went wrong", {
         position: "bottom-right",
         autoClose: 2000,
       });
     }
-  } catch (error) {
-    toast.warning("Oops something went wrong", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+  } else {
+    try {
+      const {
+        data: { cart },
+        status,
+      } = await axios.post(
+        `/api/user/cart/${product._id}`,
+        { action: { type: "increment" } },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+
+      if (status === 200 || status === 201) {
+        CartDispatch({
+          type: "INCREMENT_QTY",
+          payload: cart,
+        });
+        toast.success("Increase item quantity in the cart", {
+          position: "bottom-right",
+          autoClose: 2000,
+        });
+      }
+    } catch (error) {
+      toast.warning("Oops Something went wrong", {
+        position: "bottom-right",
+        autoClose: 2000,
+      });
+    }
   }
 };

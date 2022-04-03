@@ -1,16 +1,33 @@
 import axios from "axios";
-
-export const removeWishlist = async (productId, token) => {
+import { toast } from "react-toastify";
+export const removeWishlist = async (
+  productId,
+  token,
+  WishlistDispatch,
+  ProductDispatch
+) => {
   try {
-    const { data, status } = axios.delete(`/api/user/wishlist/${productId}`, {
+    const {
+      data: { wishlist },
+      status,
+    } = await axios.delete(`/api/user/wishlist/${productId}`, {
       headers: {
         authorization: token,
       },
     });
+
     if (status === 200 || status === 201) {
-      return { data, status };
+      WishlistDispatch({ type: "REMOVE_PRODUCT_WISHLIST", payload: wishlist });
+      ProductDispatch({ type: "IS_LIKED", payload: productId });
+      toast.success("Add item to wishlist", {
+        position: "bottom-right",
+        autoClose: 2000,
+      });
     }
   } catch (error) {
-    return false;
+    toast.warning("Oops something went wrong", {
+      position: "bottom-right",
+      autoClose: 2000,
+    });
   }
 };

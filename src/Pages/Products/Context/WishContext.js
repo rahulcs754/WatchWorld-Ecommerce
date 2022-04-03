@@ -6,6 +6,8 @@ const WishContext = createContext();
 const WishProvider = ({ children }) => {
   const intialValue = {
     wishlist: [],
+    loader: true,
+    error: "",
   };
 
   const [WishlistState, WishlistDispatch] = useReducer(

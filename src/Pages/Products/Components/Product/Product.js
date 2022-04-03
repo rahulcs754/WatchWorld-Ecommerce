@@ -11,23 +11,12 @@ import { Rating } from "../../../../Components/Rating/index";
 import { addCart, addWishlist } from "../../../../ApiService";
 
 const Product = (props) => {
-  const {
-    _id,
-    image,
-    title,
-    price,
-    mrpPrice,
-    rating,
-    discount,
-    isLiked,
-    inStock,
-    storageQty,
-    isSelected,
-  } = props;
+  const { _id, image, title, price, mrpPrice, rating, isLiked, isSelected } =
+    props;
 
-  const { WishlistDispatch } = useWish();
+  const { WishlistState, WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
-  const { CartDispatch } = useCart();
+  const { CartState, CartDispatch } = useCart();
   const { userAuth } = useAuthData();
   const navigate = useNavigate();
   const { isUserLoggedIn, encodedToken } = userAuth;
@@ -36,16 +25,23 @@ const Product = (props) => {
 
   const addHandler = async (productDetails) => {
     // api call to add item in cart
-    addCart(productDetails, encodedToken, CartDispatch, ProductDispatch);
+    addCart(
+      productDetails,
+      encodedToken,
+      CartDispatch,
+      ProductDispatch,
+      CartState
+    );
   };
 
-  const wishlistHandler = async (productId) => {
-    // api call to post data
-
-    await addWishlist(productId, encodedToken);
-
-    WishlistDispatch({ type: "ADD_PRODUCT_WISHLIST", payload: productId });
-    ProductDispatch({ type: "IS_LIKED", payload: productId });
+  const wishlistHandler = (productDetails) => {
+    addWishlist(
+      productDetails,
+      encodedToken,
+      WishlistDispatch,
+      ProductDispatch,
+      WishlistState
+    );
   };
 
   const DiscountPercentage = (((mrpPrice - price) / mrpPrice) * 100).toFixed();
@@ -91,7 +87,7 @@ const Product = (props) => {
         {isUserLoggedIn ? (
           <button
             className="btn btn-warning"
-            onClick={() => wishlistHandler(_id)}
+            onClick={() => wishlistHandler(props)}
           >
             {isLiked ? "Added To Wishlist" : "Add To Wishlist"}
           </button>
