@@ -1,17 +1,18 @@
-import { useCart } from "../../Pages/Products/Context/CartContext";
-import { useWish } from "../../Pages/Products/Context/WishContext";
+import { useCart, useWish } from "../../Pages/Products/Context";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Context/ThemeContext";
 
 import { useAuthData } from "../../Context/AuthContext";
-
 import { CartCounter } from "./Components/CartCounter";
 import { WishlistCounter } from "./Components/WishlistCounter";
 import { UserDetails } from "./Components/UserDetails";
+
 const Header = () => {
   const { WishlistState } = useWish();
   const { CartState } = useCart();
   const { userAuth } = useAuthData();
   const { isUserLoggedIn } = userAuth;
+  const { theme, themeHandler } = useTheme();
 
   return (
     <>
@@ -52,6 +53,7 @@ const Header = () => {
                   cart={CartState.cart}
                 />
               </li>
+
               <li>
                 <UserDetails isUserLoggedIn={isUserLoggedIn} />
               </li>

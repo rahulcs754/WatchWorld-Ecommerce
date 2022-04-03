@@ -32,15 +32,9 @@ export const removeCart = async (
         type: "IS_SELECTED",
         payload: productId,
       });
-      toast.success("Remove Item from the cart", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.success("Remove Item from the cart");
     }
   } catch (error) {
-    toast.warning("Oops Something Went Wrong", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+    toast.warning("Oops Something Went Wrong");
   }
 };

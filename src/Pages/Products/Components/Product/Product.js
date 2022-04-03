@@ -8,59 +8,40 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthData } from "../../../../Context/AuthContext";
 
 import { Rating } from "../../../../Components/Rating/index";
-import { addCart } from "../../../../ApiService";
-import axios from "axios";
+import { addCart, addWishlist } from "../../../../ApiService";
 
 const Product = (props) => {
-  const {
-    _id,
-    image,
-    title,
-    price,
-    mrpPrice,
-    rating,
-    discount,
-    isLiked,
-    inStock,
-    storageQty,
-    isSelected,
-  } = props;
+  const { _id, image, title, price, mrpPrice, rating, isLiked, isSelected } =
+    props;
 
-  const { WishlistDispatch } = useWish();
+  const { WishlistState, WishlistDispatch } = useWish();
   const { ProductDispatch } = useProduct();
-  const { CartDispatch } = useCart();
+  const { CartState, CartDispatch } = useCart();
   const { userAuth } = useAuthData();
   const navigate = useNavigate();
   const { isUserLoggedIn, encodedToken } = userAuth;
 
   const productDetails = { _id: _id, qty: 1, amount: price };
 
-  const addHandler = (productDetails) => {
+  const addHandler = async (productDetails) => {
     // api call to add item in cart
-    addCart(productDetails, encodedToken, CartDispatch, ProductDispatch);
+    addCart(
+      productDetails,
+      encodedToken,
+      CartDispatch,
+      ProductDispatch,
+      CartState
+    );
   };
 
-  const wishlistHandler = async (productId) => {
-    // api call to post data
-    try {
-      const { data, status } = await axios.post(
-        "/api/user/wishlist",
-        { product: { _id: productId } },
-        {
-          headers: {
-            authorization: encodedToken,
-          },
-        }
-      );
-      if (status === 200 || status === 201) {
-        alert("Added to Wishlist");
-      }
-    } catch (error) {
-      alert(error);
-    }
-
-    WishlistDispatch({ type: "ADD_AND_REMOVE_WISHLIST", payload: productId });
-    ProductDispatch({ type: "IS_LIKED", payload: productId });
+  const wishlistHandler = (productDetails) => {
+    addWishlist(
+      productDetails,
+      encodedToken,
+      WishlistDispatch,
+      ProductDispatch,
+      WishlistState
+    );
   };
 
   const DiscountPercentage = (((mrpPrice - price) / mrpPrice) * 100).toFixed();
@@ -106,7 +87,7 @@ const Product = (props) => {
         {isUserLoggedIn ? (
           <button
             className="btn btn-warning"
-            onClick={() => wishlistHandler(_id)}
+            onClick={() => wishlistHandler(props)}
           >
             {isLiked ? "Added To Wishlist" : "Add To Wishlist"}
           </button>

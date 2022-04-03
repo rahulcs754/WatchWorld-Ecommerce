@@ -1,8 +1,12 @@
 import { useCart } from "../Products/Context/CartContext";
-
+import { useAuthData } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { CartCounter, ProductList, CartTotal } from "./Components";
 
 export const Cart = () => {
+  const navigate = useNavigate();
+  const { userAuth } = useAuthData();
+  const { isUserLoggedIn } = userAuth;
   const { CartState } = useCart();
   const { cart } = CartState;
   return (
