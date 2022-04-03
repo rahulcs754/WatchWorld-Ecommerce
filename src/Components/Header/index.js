@@ -57,16 +57,6 @@ const Header = () => {
               <li>
                 <UserDetails isUserLoggedIn={isUserLoggedIn} />
               </li>
-              <li>
-                <Link to="#">
-                  <div className="badge">
-                    <i
-                      class="fas fa-sun badge-icon"
-                      onClick={() => themeHanlder(theme)}
-                    ></i>
-                  </div>
-                </Link>
-              </li>
             </ul>
           </header>
         </div>
