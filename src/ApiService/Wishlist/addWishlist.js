@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useWish } from "../../Pages/Products/Context";
 export const addWishlist = async (
   productDetails,
   token,
@@ -29,16 +28,10 @@ export const addWishlist = async (
       if (status === 200 || status === 201) {
         WishlistDispatch({ type: "ADD_PRODUCT_WISHLIST", payload: wishlist });
         ProductDispatch({ type: "IS_LIKED", payload: productDetails._id });
-        toast.success("Add item to wishlist", {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success("Add item to wishlist");
       }
     } catch (error) {
-      toast.warning("Oops something went wrong", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.warning("Oops something went wrong");
     }
   } else {
     //Show product already exits
@@ -64,10 +57,7 @@ export const addWishlist = async (
         });
       }
     } catch (error) {
-      toast.warning("Oops something went wrong", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.warning("Oops something went wrong");
     }
   }
 };

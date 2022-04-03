@@ -34,10 +34,7 @@ export const decrementCartQty = async (
           type: "IS_SELECTED",
           payload: productId,
         });
-        toast.success("Remove Item from the cart", {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success("Remove Item from the cart");
       }
     } else {
       const {
@@ -54,10 +51,7 @@ export const decrementCartQty = async (
       );
 
       if (status === 200 || status === 201) {
-        toast.success("Decrease item quantity in the cart", {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success("Decrease item quantity in the cart");
         CartDispatch({
           type: "DECREMENT_QTY",
           payload: cart,
@@ -65,9 +59,6 @@ export const decrementCartQty = async (
       }
     }
   } catch (error) {
-    toast.warning("Oops Something went wrong", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+    toast.warning("Oops Something went wrong");
   }
 };

@@ -19,15 +19,9 @@ export const removeWishlist = async (
     if (status === 200 || status === 201) {
       WishlistDispatch({ type: "REMOVE_PRODUCT_WISHLIST", payload: wishlist });
       ProductDispatch({ type: "IS_LIKED", payload: productId });
-      toast.success("Add item to wishlist", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.success("Add item to wishlist");
     }
   } catch (error) {
-    toast.warning("Oops something went wrong", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+    toast.warning("Oops something went wrong");
   }
 };

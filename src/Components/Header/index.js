@@ -12,7 +12,7 @@ const Header = () => {
   const { CartState } = useCart();
   const { userAuth } = useAuthData();
   const { isUserLoggedIn } = userAuth;
-  const { theme, themeHanlder } = useTheme();
+  const { theme, themeHandler } = useTheme();
 
   return (
     <>

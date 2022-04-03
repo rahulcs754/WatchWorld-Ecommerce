@@ -20,15 +20,9 @@ export const incrementCartQty = async (productId, token, CartDispatch) => {
         type: "INCREMENT_QTY",
         payload: cart,
       });
-      toast.success("Increase item quantity in the cart", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.success("Increase item quantity in the cart");
     }
   } catch (error) {
-    toast.warning("Oops Something went wrong", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+    toast.warning("Oops Something went wrong");
   }
 };

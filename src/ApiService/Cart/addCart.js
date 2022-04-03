@@ -36,16 +36,10 @@ export const addCart = async (
           type: "IS_SELECTED",
           payload: product._id,
         });
-        toast.success("Add item to cart", {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success("Add item to cart");
       }
     } catch (error) {
-      toast.warning("Oops something went wrong", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.warning("Oops something went wrong");
     }
   } else {
     try {
@@ -67,16 +61,10 @@ export const addCart = async (
           type: "INCREMENT_QTY",
           payload: cart,
         });
-        toast.success("Increase item quantity in the cart", {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success("Increase item quantity in the cart");
       }
     } catch (error) {
-      toast.warning("Oops Something went wrong", {
-        position: "bottom-right",
-        autoClose: 2000,
-      });
+      toast.warning("Oops Something went wrong");
     }
   }
 };

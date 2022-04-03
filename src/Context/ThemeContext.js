@@ -5,14 +5,14 @@ const ThemeContext = createContext();
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
-  const themeHanlder = (themetype) => {
+  const themeHandler = (themetype) => {
     themetype === "light"
       ? setTheme((prev) => "dark")
       : setTheme((prev) => "light");
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, themeHanlder }}>
+    <ThemeContext.Provider value={{ theme, themeHandler }}>
       {children}
     </ThemeContext.Provider>
   );
