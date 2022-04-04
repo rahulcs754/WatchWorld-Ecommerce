@@ -151,7 +151,9 @@
 .rating-item:hover {
   color: var(--mint-white);
 }
+
 /*btn settings*/
+
 .btn {
   font-size: 0.8rem;
 }
