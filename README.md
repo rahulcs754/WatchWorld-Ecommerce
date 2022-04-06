@@ -66,8 +66,6 @@ Now enter below command to run your project.
 npm start
 ```
 
-### Screenshots
-
 ### Creators
 
 **Rahul Shukla**
