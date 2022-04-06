@@ -26,7 +26,7 @@ const Footer = () => {
               <Link to="/signup">Sign Up</Link>
             </li>
             <li className="list-item bg-warning bt">
-              <Link to="/products">Product List</Link>
+              <Link to="/products/All Product">Product List</Link>
             </li>
             <li className="list-item bg-warning bt">
               <Link to="/cart">Card Page</Link>

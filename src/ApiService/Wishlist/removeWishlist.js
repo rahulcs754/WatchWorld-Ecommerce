@@ -19,7 +19,7 @@ export const removeWishlist = async (
     if (status === 200 || status === 201) {
       WishlistDispatch({ type: "REMOVE_PRODUCT_WISHLIST", payload: wishlist });
       ProductDispatch({ type: "IS_LIKED", payload: productId });
-      toast.success("Add item to wishlist");
+      toast.warning("Remove item from wishlist");
     }
   } catch (error) {
     toast.warning("Oops something went wrong");
