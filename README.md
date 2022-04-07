@@ -5,34 +5,30 @@
 </h1>
 
 <p align="center">
-    Watch World is E-commerce website for watches
+    Watch World is E-commerce website for watches. All great achievements requires hard work & time. We are here to help you track your time. 
   <br>
   <a href="https://watchw.vercel.app/"><strong>Explore Watch World »</strong></a>
   <br>
-  <br>
-  <a href="https://watchw.vercel.app/">Suggestion / Bug</a>
-  </p>
+</p>
 
 ## Test Credentials -
 
-- email : rahul@gmail.com
-- password : 123
+- Are provided on the Login page. The user can simply login as guest and go through the flow of the app.
 
 ## Technologies Used -
 
 1. HTML, CSS & React Js
-2. Used Own component library <a href="https://rs-ui.netlify.app/">(Component library )</a>
+2. For styling Watchworld my own CSS Component Lib - "RS UI Component" - Github Link - <a href="https://rs-ui.netlify.app/">RS UI Component</a>
 3. React Router
-4. JWT for authorization
-5. vercel for hosting website.
+4. Backend provide by Mockbee - <a href="https://github.com/neogcamp/mockBee">Mockbee Link</a>
+5. JWT for authentication
+6. vercel for hosting the website.
 
-## Project Pages
+## USE The App
 
-1. Home Page
-2. Product Listing - Page with Filters by Price Category Ratings with functionality
-3. Cart Management with functionality
-4. Wishlist Management with functionality
-5. Authentication - login | logout | signup with functionality
+<a href="https://watchw.vercel.app/">
+   Watch World
+</a>
 
 ## How to Install and Run the Project
 
@@ -72,3 +68,8 @@ npm start
 
 - <https://twitter.com/rahulcs754>
 - <https://github.com/rahulcs754>
+
+### Website snippet
+
+![screencapture-watchw-vercel-app-2022-04-06-10_51_21](https://user-images.githubusercontent.com/6254980/161901403-1696d4d6-4f6e-4816-9a40-be7063605254.png)
+![screencapture-watchw-vercel-app-2022-04-06-10_52_37](https://user-images.githubusercontent.com/6254980/161901493-2e5c74e7-c7c4-48eb-a62c-89ea73aa5e6b.png)
