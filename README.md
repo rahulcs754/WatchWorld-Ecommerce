@@ -21,7 +21,7 @@
 ## Technologies Used -
 
 1. HTML, CSS & React Js
-2. RS UI component library
+2. Used Own component library <a href="https://rs-ui.netlify.app/">(Component library )</a>
 3. React Router
 4. JWT for authorization
 5. vercel for hosting website.
@@ -38,7 +38,7 @@
 
 Instructions for running this code to your local system.
 
-Opn your terminal and copy below code line.
+Open your terminal and copy below code line.
 
 ```
 git clone https://github.com/rahulcs754/Video-Library.git

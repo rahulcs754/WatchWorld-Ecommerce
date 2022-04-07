@@ -21,7 +21,9 @@ export const CartTotal = ({ cart, total }) => {
           <div className="mycart-amount-desc">
             <span> You will save $50 on this order </span>
           </div>
-          <button className="btn btn-border d-block">Place Order</button>
+          <button className="btn btn-border d-block">
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </>
