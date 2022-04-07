@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 import { useTheme } from "./Context/ThemeContext";
 
 const App = () => {
-  const { theme, themeHanlder } = useTheme();
+  const { theme } = useTheme();
   return (
     <div className={`${theme === "light" ? "light" : "dark"}`}>
       <Header />

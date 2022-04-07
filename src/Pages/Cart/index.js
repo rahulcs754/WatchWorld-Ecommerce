@@ -2,6 +2,7 @@ import { useCart } from "../Products/Context/CartContext";
 import { useAuthData } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { CartCounter, ProductList, CartTotal } from "./Components";
+import { useEffect } from "react";
 
 export const Cart = () => {
   const navigate = useNavigate();
@@ -9,6 +10,13 @@ export const Cart = () => {
   const { isUserLoggedIn } = userAuth;
   const { CartState } = useCart();
   const { cart } = CartState;
+
+  useEffect(() => {
+    if (!isUserLoggedIn) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <>
       <CartCounter {...CartState} />

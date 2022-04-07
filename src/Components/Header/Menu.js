@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthData } from "../../Context/AuthContext";
 export const Menu = () => {
   const Firstname = localStorage.getItem("Firstname");
   const { DispatchUserAuth } = useAuthData();
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     DispatchUserAuth({
       type: "LOGOUT",
     });
+    navigate("/products/All Product");
   };
   return (
     <div className="menu">

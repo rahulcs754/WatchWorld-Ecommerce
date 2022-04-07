@@ -34,7 +34,7 @@ export const decrementCartQty = async (
           type: "IS_SELECTED",
           payload: productId,
         });
-        toast.success("Remove Item from the cart");
+        toast.warning("Remove Item from the cart");
       }
     } else {
       const {

@@ -39,12 +39,14 @@ export const Wishlist = () => {
   return (
     <>
       <div className="flex flex-center mt-l mb-l f-m">
-        <h3>My WishList</h3>
+        <h3>My WishList ({WishlistState.wishlist.length}) </h3>
       </div>
 
       <div className="rs-row margin-auto width-80 wishlist-container">
         {WishlistState.wishlist.length === 0 && (
-          <div className="col-sm-12 margin-auto">No Data Found</div>
+          <div className="col-sm-12 margin-auto f-m">
+            You've no item in your wishlist
+          </div>
         )}
 
         {WishlistState.wishlist &&
