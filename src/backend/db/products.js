@@ -9,7 +9,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612850/e-comm/man_bgremove/5-removebg-preview_seobft.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612850/e-comm/man_bgremove/5-removebg-preview_seobft.png",
     title: "FERARI BLACK",
     price: "1800",
     mrpPrice: "3800",
@@ -28,7 +28,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612846/e-comm/man_bgremove/14-removebg-preview_dnh5xv.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612846/e-comm/man_bgremove/14-removebg-preview_dnh5xv.png",
     title: "FOSSIL",
     price: "900",
     mrpPrice: "1800",
@@ -46,7 +46,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612849/e-comm/man_bgremove/3-removebg-preview_unnfa8.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612849/e-comm/man_bgremove/3-removebg-preview_unnfa8.png",
     title: "POLICE WAT",
     price: "1000",
     mrpPrice: "2000",
@@ -64,7 +64,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612846/e-comm/man_bgremove/12-removebg-preview_knuik0.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612846/e-comm/man_bgremove/12-removebg-preview_knuik0.png",
     title: "FOSSIL",
     price: "1950",
     mrpPrice: "3900",
@@ -82,7 +82,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612848/e-comm/man_bgremove/2-removebg-preview_coem9l.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612848/e-comm/man_bgremove/2-removebg-preview_coem9l.png",
     title: "FERARI PILOTA",
     price: "600",
     mrpPrice: "1200",
@@ -100,7 +100,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612848/e-comm/man_bgremove/28-removebg-preview_imzwd9.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612848/e-comm/man_bgremove/28-removebg-preview_imzwd9.png",
     title: "KENNETH COLE",
     price: "1800",
     mrpPrice: "3800",
@@ -118,7 +118,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612848/e-comm/man_bgremove/26-removebg-preview_osrusm.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612848/e-comm/man_bgremove/26-removebg-preview_osrusm.png",
     title: "FERARI TECHYNO",
     price: "2250",
     mrpPrice: "4500",
@@ -136,7 +136,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612848/e-comm/man_bgremove/27-removebg-preview_tamfz9.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612848/e-comm/man_bgremove/27-removebg-preview_tamfz9.png",
     title: "PILOTA CRONO",
     price: "1524",
     mrpPrice: "2540",
@@ -154,7 +154,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612848/e-comm/man_bgremove/25-removebg-preview_od8tyx.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612848/e-comm/man_bgremove/25-removebg-preview_od8tyx.png",
     title: "PILOTA BATN",
     price: "1524",
     mrpPrice: "2540",
@@ -172,7 +172,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612847/e-comm/man_bgremove/23-removebg-preview_sqqr5v.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612847/e-comm/man_bgremove/23-removebg-preview_sqqr5v.png",
     title: "FOSSIL",
     price: "1800",
     mrpPrice: "6504",
@@ -190,7 +190,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612846/e-comm/man_bgremove/17-removebg-preview_foeprh.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612846/e-comm/man_bgremove/17-removebg-preview_foeprh.png",
     title: "SEIKO",
     price: "1800",
     mrpPrice: "3800",
@@ -208,7 +208,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612846/e-comm/man_bgremove/18-removebg-preview_iqpvia.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612846/e-comm/man_bgremove/18-removebg-preview_iqpvia.png",
     title: "FOSSIL",
     price: "450",
     mrpPrice: "900",
@@ -226,7 +226,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612845/e-comm/man_bgremove/10-removebg-preview_s4jztv.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612845/e-comm/man_bgremove/10-removebg-preview_s4jztv.png",
     title: "SEIKO",
     price: "600",
     mrpPrice: "1000",
@@ -244,7 +244,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612845/e-comm/man_bgremove/9-removebg-preview_dog4ek.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612845/e-comm/man_bgremove/9-removebg-preview_dog4ek.png",
     title: "FOSSIL GOLD",
     price: "1800",
     mrpPrice: "3800",
@@ -263,7 +263,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612845/e-comm/man_bgremove/7-removebg-preview_abx3tk.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612845/e-comm/man_bgremove/7-removebg-preview_abx3tk.png",
     title: "DW MAN",
     price: "1100",
     mrpPrice: "2200",
@@ -281,7 +281,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612845/e-comm/man_bgremove/6-removebg-preview_umrynu.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612845/e-comm/man_bgremove/6-removebg-preview_umrynu.png",
     title: "GCMNS SA",
     price: "450",
     mrpPrice: "900",
@@ -299,7 +299,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612845/e-comm/man_bgremove/8-removebg-preview_jhix1a.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612845/e-comm/man_bgremove/8-removebg-preview_jhix1a.png",
     title: "HILFIGER",
     price: "1800",
     mrpPrice: "3800",
@@ -318,7 +318,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/13-removebg-preview_spsbvp.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/13-removebg-preview_spsbvp.png",
     title: "ANNE KLEIN",
     price: "900",
     mrpPrice: "1800",
@@ -336,7 +336,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/2-removebg-preview_mgigue.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/2-removebg-preview_mgigue.png",
     title: "MICHAEL KORS",
     price: "450",
     mrpPrice: "900",
@@ -354,7 +354,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612804/e-comm/woman_bgremove/4-removebg-preview_a7syu7.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612804/e-comm/woman_bgremove/4-removebg-preview_a7syu7.png",
     title: "MICHAEL KORS",
     price: "1800",
     mrpPrice: "3800",
@@ -372,7 +372,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/3-removebg-preview_pnvcj0.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/3-removebg-preview_pnvcj0.png",
     title: "MICHAEL KORS",
     price: "900",
     mrpPrice: "1800",
@@ -390,7 +390,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/12-removebg-preview_olyx7v.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/12-removebg-preview_olyx7v.png",
     title: "SKAGEN",
     price: "500",
     mrpPrice: "1000",
@@ -408,7 +408,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/1-removebg-preview_xg1aly.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/1-removebg-preview_xg1aly.png",
     title: "EMPORIO ARMAN",
     price: "500",
     mrpPrice: "1000",
@@ -426,7 +426,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612803/e-comm/woman_bgremove/14-removebg-preview_ftdnfo.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612803/e-comm/woman_bgremove/14-removebg-preview_ftdnfo.png",
     title: "ANNE KLEIN",
     price: "700",
     mrpPrice: "1400",
@@ -444,7 +444,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612802/e-comm/woman_bgremove/11-removebg-preview_c5niqo.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612802/e-comm/woman_bgremove/11-removebg-preview_c5niqo.png",
     title: "MICHAEL KORS",
     price: "900",
     mrpPrice: "1800",
@@ -462,7 +462,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612802/e-comm/woman_bgremove/7-removebg-preview_cef7me.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612802/e-comm/woman_bgremove/7-removebg-preview_cef7me.png",
     title: "MICHAEL KORS",
     price: "1800",
     mrpPrice: "3800",
@@ -480,7 +480,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612802/e-comm/woman_bgremove/9-removebg-preview_gpgprb.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612802/e-comm/woman_bgremove/9-removebg-preview_gpgprb.png",
     title: "MICKEL KORS",
     price: "900",
     mrpPrice: "1800",
@@ -498,7 +498,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612802/e-comm/woman_bgremove/10-removebg-preview_n25tt8.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612802/e-comm/woman_bgremove/10-removebg-preview_n25tt8.png",
     title: "MICHAEL KORS",
     price: "700",
     mrpPrice: "1400",
@@ -516,7 +516,7 @@ export const products = [
   {
     _id: uuid(),
     image:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647612802/e-comm/woman_bgremove/6-removebg-preview_r5onog.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647612802/e-comm/woman_bgremove/6-removebg-preview_r5onog.png",
     title: "MICHEL KORS",
     price: "1800",
     mrpPrice: "3800",

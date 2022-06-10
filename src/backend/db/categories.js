@@ -12,7 +12,7 @@ export const categories = [
     description: "",
     linkCategory: "/products",
     bannerImage:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647696854/e-comm/categoryhome/watchformancompress_rmmft8.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647696854/e-comm/categoryhome/watchformancompress_rmmft8.png",
   },
   {
     _id: uuid(),
@@ -20,6 +20,6 @@ export const categories = [
     description: "",
     linkCategory: "/products",
     bannerImage:
-      "https://res.cloudinary.com/diyo6qdy1/image/upload/v1647696849/e-comm/categoryhome/Watch_for_womancompres_llja2c.png",
+      "https://res.cloudinary.com/rahulcs754/image/upload/v1647696849/e-comm/categoryhome/Watch_for_womancompres_llja2c.png",
   },
 ];
