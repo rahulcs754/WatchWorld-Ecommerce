@@ -1,16 +1,21 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useFilter } from "../../Context/FilterContext";
 import Product from "../Product/Product";
 
 const ProductsList = () => {
-  const { ProductListFiltered } = useFilter();
+  const { FilterState, ProductListFiltered } = useFilter();
   const params = useParams();
+
+  const { category } = FilterState;
 
   const ProductFilterByCategory =
     params.category !== "All Product"
-      ? ProductListFiltered.filter(
-          ({ categoryName }) => categoryName === params.category
-        )
+      ? category.length > 0
+        ? ProductListFiltered
+        : ProductListFiltered.filter(
+            ({ categoryName }) => categoryName === params.category
+          )
       : ProductListFiltered;
 
   return (

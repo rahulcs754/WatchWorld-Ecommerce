@@ -22,16 +22,7 @@ const Header = () => {
             <h1 className="header-logo">
               <Link to="/">Watch World</Link>
             </h1>
-            <div className="header-search">
-              <input
-                type="text"
-                className="header-input field-item"
-                placeholder="Search"
-              />
-              <div className="error-icon header-error-icon">
-                <i className="fas fa-search input-error-icon header-search-icon" />
-              </div>
-            </div>
+
             <ul className="header-nav">
               <li>
                 <Link to="/"> Home </Link>
